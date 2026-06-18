@@ -24,7 +24,8 @@ h1,h2,h3 { font-weight: bold; }
 
 /* LOGO */
 .logo {
-  width: 120px;
+  width: 140px;
+  max-width: 40vw;
   margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: 0 0 25px #ff7a00;
@@ -36,15 +37,13 @@ h1,h2,h3 { font-weight: bold; }
 }
 
 .hero h1 {
-  font-size: 52px;
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  line-height: 1.1;
 }
 
 .hero p {
-  font-size: 18px;
-  color: #bbb;
-  max-width: 750px;
-  margin: auto;
-  line-height: 1.6;
+  font-size: 1rem;
+  padding: 0 10px;
 }
 
 .orange { color: #ff7a00; }
@@ -120,7 +119,19 @@ h1,h2,h3 { font-weight: bold; }
   transform: scale(1.05);
   border: 1px solid #ff7a00;
 }
+@media(max-width:768px){
 
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+.card{
+    width:100%;
+    max-width:380px;
+}
+
+}
 .price {
   font-size: 30px;
   color: #ff7a00;
@@ -157,20 +168,21 @@ h1,h2,h3 { font-weight: bold; }
 /* TESTIMONIAL SLIDER */
 .slider {
   position: relative;
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
   margin: auto;
   overflow: hidden;
 }
 
 .slides {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform .5s ease;
 }
 
 .slides img {
-  width: 800px;
-  border-radius: 12px;
+  width: 100%;
   flex-shrink: 0;
+  border-radius: 16px;
 }
 
 .arrow {
@@ -219,6 +231,38 @@ h1,h2,h3 { font-weight: bold; }
   box-shadow:
     0 0 25px rgba(255,122,0,0.35),
     0 0 70px rgba(255,122,0,0.15);
+}
+  .sticky-cta {
+  display:none;
+}
+
+@media(max-width:768px){
+
+.sticky-cta{
+    display:block;
+    position:fixed;
+    bottom:15px;
+    left:15px;
+    right:15px;
+    z-index:9999;
+}
+
+.sticky-cta a{
+    display:block;
+    text-align:center;
+    background:#ff7a00;
+    color:black;
+    padding:18px;
+    border-radius:14px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(255,122,0,.6);
+}
+}
+  .card.popular {
+    border:2px solid #ff7a00;
+    transform:scale(1.03);
+    box-shadow:0 0 30px rgba(255,122,0,.3);
 }
 </style>
 </head>
@@ -283,7 +327,7 @@ h1,h2,h3 { font-weight: bold; }
   <div class="payout-gallery">
 
     <img src="https://imgur.com/2y7NgN1.jpg" alt="Payout Certificate">
-    <img src="https://imgur.com/T8Pljw0,jpg" alt="Payout Certificate">
+    <img src="https://imgur.com/T8Pljw0.jpg" alt="Payout Certificate">
     <img src="https://imgur.com/KLGaHVm.jpg" alt="Payout Certificate">
     <img src="https://imgur.com/C5itOag.jpg" alt="Payout Certificate">
     <img src="https://imgur.com/t3yahTb.jpg" alt="Payout Certificate">
@@ -322,11 +366,22 @@ h1,h2,h3 { font-weight: bold; }
   </div>
 
   <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+  
 
 </div>
 </div>
-
 <!-- OFFERS -->
+<div class="section fade">
+<h2>⚠ Limited Enrollment</h2>
+
+<p>
+Only <span class="orange">20 slots</span> are available
+for the next 30-Day Development Program batch.
+<br><br>
+Only <span class="orange">5 traders</span> are accepted
+for the Funded Trader Accelerator.
+</p>
+</div>
 <div id="offers" class="section fade">
 <h2>Choose Your Path</h2>
 
@@ -362,6 +417,7 @@ h1,h2,h3 { font-weight: bold; }
 <li>Psychology Training</li>
 </ul>
 <a class="btn" href="#">Join Program</a>
+<div class="card popular">
 </div>
 
 <!-- ACCELERATOR -->
@@ -402,11 +458,21 @@ function moveSlide(dir){
   const total = slides.children.length;
 
   index += dir;
-  if(index < 0) index = 0;
-  if(index > total-1) index = total-1;
 
-  slides.style.transform = `translateX(${-index * 800}px)`;
+  if(index < 0){
+      index = total - 1;
+  }
+
+  if(index >= total){
+      index = 0;
+  }
+
+  slides.style.transform =
+      `translateX(-${index * 100}%)`;
 }
+  setInterval(()=>{
+  moveSlide(1);
+}, 5000);
 
 // scroll animation
 const faders = document.querySelectorAll('.fade');
@@ -420,6 +486,8 @@ const observer = new IntersectionObserver((entries, obs)=>{
 
 faders.forEach(el=>observer.observe(el));
 </script>
-
+<div class="sticky-cta">
+  <a href="#offers">🚀 Join Winner Circle</a>
+</div>
 </body>
 </html>
