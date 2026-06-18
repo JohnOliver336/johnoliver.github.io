@@ -603,26 +603,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(nextSlide, 5000);
 
-  // SWIPE
-  let startX = 0;
+ // SWIPE (IMPROVED MOBILE VERSION)
+let startX = 0;
+let startY = 0;
 
-  slides.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
+slides.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
 
-  slides.addEventListener("touchend", (e) => {
-    let endX = e.changedTouches[0].clientX;
+slides.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  let endY = e.changedTouches[0].clientY;
 
-    if (endX < startX - 50) {
+  let diffX = endX - startX;
+  let diffY = endY - startY;
+
+  // only trigger if horizontal swipe is stronger than vertical
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+
+    if (diffX < -50) {
       index = (index + 1) % totalSlides;
       updateSlider();
     }
 
-    if (endX > startX + 50) {
+    if (diffX > 50) {
       index = (index - 1 + totalSlides) % totalSlides;
       updateSlider();
     }
-  });
+
+  }
+});
 
 });
 </script>
