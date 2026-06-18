@@ -14,7 +14,7 @@ body {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3 { font-weight: bold; }
+h1,h2,h3 { font-weight: bold; }
 
 .container {
   width: 90%;
@@ -22,17 +22,18 @@ h1, h2, h3 { font-weight: bold; }
   margin: auto;
 }
 
+/* LOGO */
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #ff7a00;
+}
+
 /* HERO */
 .hero {
   text-align: center;
-  padding: 70px 20px 40px;
-}
-
-.logo {
-  width: 120px;
-  border-radius: 18px;
-  box-shadow: 0 0 25px #ff7a00;
-  margin-bottom: 20px;
+  padding: 90px 20px;
 }
 
 .hero h1 {
@@ -65,7 +66,6 @@ h1, h2, h3 { font-weight: bold; }
 
 .btn:hover { transform: scale(1.05); }
 
-/* SECTIONS */
 .section {
   padding: 90px 20px;
 }
@@ -80,18 +80,6 @@ h1, h2, h3 { font-weight: bold; }
   color: #bbb;
   font-size: 18px;
   line-height: 1.6;
-}
-
-/* VIDEO */
-.video {
-  text-align: center;
-  margin-top: 20px;
-}
-
-video {
-  width: 100%;
-  max-width: 850px;
-  border-radius: 12px;
 }
 
 /* CARDS */
@@ -128,6 +116,7 @@ video {
   color: #777;
 }
 
+/* BADGE */
 .badge {
   background: #ff3b3b;
   padding: 6px 12px;
@@ -155,18 +144,17 @@ video {
   max-width: 800px;
   margin: auto;
   overflow: hidden;
-  border-radius: 12px;
 }
 
 .slides {
   display: flex;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
-  width: 100%;
-  flex-shrink: 0;
+  width: 800px;
   border-radius: 12px;
+  flex-shrink: 0;
 }
 
 .arrow {
@@ -176,7 +164,7 @@ video {
   background: rgba(255,122,0,0.8);
   border: none;
   color: black;
-  font-size: 22px;
+  font-size: 20px;
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
@@ -197,22 +185,14 @@ video {
 
 <!-- HERO -->
 <div class="hero fade">
-  <img class="logo" src="https://i.imgur.com/h8NAc6Z.png" alt="logo">
+  <img src="https://imgur.com/h8NAc6Z.jpg" class="logo">
 
   <h1>Become a <span class="orange">Consistent Funded Trader</span></h1>
-
   <p>
-    Stop guessing the markets. Learn a structured system, fix your execution, and build the discipline needed to become funded.
+    Stop guessing the markets. Learn a structured system, fix your execution, and develop discipline.
   </p>
 
-  <a href="#offers" class="btn">Explore Programs</a>
-</div>
-
-<!-- VIDEO -->
-<div class="video fade">
-  <video autoplay muted loop controls>
-    <source src="your-video.mp4" type="video/mp4">
-  </video>
+  <a href="#offers" class="btn">Start Your Journey</a>
 </div>
 
 <!-- STORY -->
@@ -239,134 +219,129 @@ video {
 
 <!-- TESTIMONIALS -->
 <div class="section fade">
-  <h2>Student Results</h2>
+<h2>Student Results</h2>
 
-  <div class="slider">
-    <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
+<div class="slider">
 
-    <div class="slides" id="slides">
-      <img src="https://i.imgur.com/qeMsZ82.png">
-      <img src="https://i.imgur.com/1gYe0ew.png">
-      <img src="https://i.imgur.com/AVxTORx.png">
-      <img src="https://i.imgur.com/XUEA1TI.png">
-      <img src="https://i.imgur.com/k06CNVc.png">
-      <img src="https://i.imgur.com/HrWNFwh.png">
-      <img src="https://i.imgur.com/cWLIkEx.png">
-      <img src="https://i.imgur.com/Dknf7AK.png">
-      <img src="https://i.imgur.com/Uh7BEaY.png">
-      <img src="https://i.imgur.com/jWEndAQ.png">
-      <img src="https://i.imgur.com/nyLmqL4.png">
-      <img src="https://i.imgur.com/iShHyWe.png">
-      <img src="https://i.imgur.com/HWZMwLL.png">
-      <img src="https://i.imgur.com/RWl1Pdl.png">
-    </div>
+  <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
 
-    <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+  <div class="slides" id="slides">
+
+    <img src="https://imgur.com/qeMsZ82.jpg">
+    <img src="https://imgur.com/1gYe0ew.jpg">
+    <img src="https://imgur.com/AVxTORx.jpg">
+    <img src="https://imgur.com/XUEA1TI.jpg">
+    <img src="https://imgur.com/k06CNVc.jpg">
+    <img src="https://imgur.com/HrWNFwh.jpg">
+    <img src="https://imgur.com/cWLIkEx.jpg">
+    <img src="https://imgur.com/Dknf7AK.jpg">
+    <img src="https://imgur.com/Uh7BEaY.jpg">
+    <img src="https://imgur.com/jWEndAQ.jpg">
+    <img src="https://imgur.com/nyLmqL4.jpg">
+    <img src="https://imgur.com/iShHyWe.jpg">
+    <img src="https://imgur.com/HWZMwLL.jpg">
+    <img src="https://imgur.com/RWl1Pdl.jpg">
+
   </div>
+
+  <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+
+</div>
 </div>
 
 <!-- OFFERS -->
 <div id="offers" class="section fade">
-  <h2>Choose Your Path</h2>
+<h2>Choose Your Path</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <!-- PRO -->
-    <div class="card">
-      <div class="badge">START HERE</div>
-      <h3>Winner Circle Pro</h3>
-      <div class="price">₱999 <span class="old">/ ₱3,999</span></div>
+<!-- PRO -->
+<div class="card">
+<div class="badge">START HERE</div>
+<h3>Winner Circle Pro</h3>
+<div class="price">₱999 <span class="old">/ ₱3,999</span></div>
+<ul>
+<li>Weekly Market Mapping</li>
+<li>Q&A Session</li>
+<li>Trade Review Session</li>
+<li>Accountability Check-in</li>
+<li>Private Discord</li>
+</ul>
+<a class="btn" href="#">Join Pro</a>
+</div>
 
-      <ul>
-        <li>Weekly Market Mapping</li>
-        <li>Q&A Session</li>
-        <li>Trade Review Session</li>
-        <li>Accountability Check-in</li>
-        <li>Private Discord</li>
-        <li>Session Recordings</li>
-      </ul>
+<!-- PROGRAM -->
+<div class="card">
+<div class="badge">MOST POPULAR</div>
+<h3>30-Day Development Program</h3>
+<div class="price">₱4,999 <span class="old">/ ₱9,999</span></div>
+<ul>
+<li>Everything in Winner Circle Pro PLUS</li>
+<li>4-Week Structured Program</li>
+<li>Trading Plan Template</li>
+<li>Journal System</li>
+<li>Market Structure Training</li>
+<li>Risk Management</li>
+<li>Psychology Training</li>
+</ul>
+<a class="btn" href="#">Join Program</a>
+</div>
 
-      <a class="btn">Join Pro</a>
-    </div>
+<!-- ACCELERATOR -->
+<div class="card">
+<div class="badge">ONLY 5 SLOTS</div>
+<h3>Funded Trader Accelerator</h3>
+<div class="price">₱9,999 <span class="old">/ ₱19,999</span></div>
+<ul>
+<li>Everything in Development Program PLUS</li>
+<li>5 Coaching Sessions</li>
+<li>Trading Audit</li>
+<li>Execution Refinement</li>
+<li>Psychology Coaching</li>
+<li>Funded Trader Roadmap</li>
+<li>90-Day Support</li>
+</ul>
+<a class="btn" href="#">Apply Now</a>
+</div>
 
-    <!-- PROGRAM -->
-    <div class="card">
-      <div class="badge">MOST POPULAR</div>
-      <h3>30-Day Development Program</h3>
-      <div class="price">₱4,999 <span class="old">/ ₱9,999</span></div>
-
-      <p style="color:#bbb;">Everything in Winner Circle Pro, plus:</p>
-
-      <ul>
-        <li>4-Week Structured Program</li>
-        <li>Trading Plan Template</li>
-        <li>Journal System</li>
-        <li>Market Structure Training</li>
-        <li>Risk Management</li>
-        <li>Psychology Training</li>
-      </ul>
-
-      <a class="btn">Join Program</a>
-    </div>
-
-    <!-- ACCELERATOR -->
-    <div class="card">
-      <div class="badge">ONLY 5 SLOTS</div>
-      <h3>Funded Trader Accelerator</h3>
-      <div class="price">₱9,999 <span class="old">/ ₱19,999</span></div>
-
-      <p style="color:#bbb;">Everything in Development Program, plus:</p>
-
-      <ul>
-        <li>5 Coaching Sessions</li>
-        <li>Trading Audit</li>
-        <li>Execution Refinement</li>
-        <li>Psychology Coaching</li>
-        <li>Funded Trader Roadmap</li>
-        <li>90-Day Support</li>
-      </ul>
-
-      <a class="btn">Apply Now</a>
-    </div>
-
-  </div>
+</div>
 </div>
 
 <!-- CTA -->
 <div class="section fade" style="text-align:center;">
-  <h2>This is exactly what I need.</h2>
-  <a class="btn">Start Your Journey</a>
+<h2>This is exactly what I need.</h2>
+<a href="#offers" class="btn">Start Your Journey</a>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  Winner Circle Traders © 2026
+Winner Circle Traders © 2026
 </div>
 
 <script>
-// FADE ANIMATION
+let index = 0;
+function moveSlide(dir){
+  const slides = document.getElementById("slides");
+  const total = slides.children.length;
+
+  index += dir;
+  if(index < 0) index = 0;
+  if(index > total-1) index = total-1;
+
+  slides.style.transform = `translateX(${-index * 800}px)`;
+}
+
+// scroll animation
 const faders = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-    }
+const observer = new IntersectionObserver((entries, obs)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    e.target.classList.add('show');
+    obs.unobserve(e.target);
   });
 },{threshold:0.2});
 
-faders.forEach(el => observer.observe(el));
-
-// TESTIMONIAL SLIDER
-let index = 0;
-const slides = document.getElementById("slides");
-const total = slides.children.length;
-
-function moveSlide(dir){
-  index += dir;
-  if(index < 0) index = total - 1;
-  if(index >= total) index = 0;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
+faders.forEach(el=>observer.observe(el));
 </script>
 
 </body>
