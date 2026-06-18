@@ -6,6 +6,25 @@
 <title>Winner Circle Traders</title>
 
 <style>
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#555;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#ff7a00;
+  box-shadow:0 0 10px #ff7a00;
+}
 .btn {
   min-width: 160px;
 }
@@ -244,6 +263,12 @@ h1,h2,h3 { font-weight: bold; }
 .left { left: 10px; }
 .right { right: 10px; }
 
+@media(max-width:768px){
+  .arrow{
+    display:none;
+  }
+}
+
 .footer {
   text-align: center;
   padding: 40px;
@@ -385,9 +410,13 @@ h1,h2,h3 { font-weight: bold; }
 
 <div class="slider">
 
-  <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
-
   <div class="slides" id="slides">
+    ...
+  </div>
+
+</div>
+
+<div class="dots" id="dots"></div>
 
     <img src="https://imgur.com/qeMsZ82.jpg">
     <img src="https://imgur.com/1gYe0ew.jpg">
@@ -501,24 +530,91 @@ Winner Circle Traders © 2026
   <a href="#offers">🚀 Join Winner Circle</a>
 </div>
 <script>
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+const dotsContainer = document.getElementById("dots");
+
 let index = 0;
 
-function moveSlide(dir){
-  const slides = document.getElementById("slides");
-  const total = slides.children.length;
+// Create dots
+for(let i = 0; i < totalSlides; i++){
 
-  index += dir;
+  const dot = document.createElement("div");
 
-  if(index < 0){
-    index = total - 1;
+  dot.classList.add("dot");
+
+  if(i === 0){
+    dot.classList.add("active");
   }
 
-  if(index >= total){
+  dot.addEventListener("click", () => {
+    index = i;
+    updateSlider();
+  });
+
+  dotsContainer.appendChild(dot);
+}
+
+function updateSlider(){
+
+  slides.style.transform =
+    `translateX(-${index * 100}%)`;
+
+  document.querySelectorAll(".dot")
+    .forEach(dot => dot.classList.remove("active"));
+
+  document.querySelectorAll(".dot")[index]
+    .classList.add("active");
+}
+
+function nextSlide(){
+
+  index++;
+
+  if(index >= totalSlides){
     index = 0;
   }
 
-  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateSlider();
 }
+
+// auto slide every 5 sec
+setInterval(nextSlide, 5000);
+
+// swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+
+slides.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+slides.addEventListener("touchend", (e) => {
+
+  touchEndX = e.changedTouches[0].screenX;
+
+  if(touchEndX < touchStartX - 50){
+
+    index++;
+
+    if(index >= totalSlides){
+      index = 0;
+    }
+
+    updateSlider();
+  }
+
+  if(touchEndX > touchStartX + 50){
+
+    index--;
+
+    if(index < 0){
+      index = totalSlides - 1;
+    }
+
+    updateSlider();
+  }
+});
 
 // auto slide
 setInterval(() => {
