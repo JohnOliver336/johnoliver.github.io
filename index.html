@@ -6,13 +6,13 @@
 <title>Winner Circle Traders</title>
 
 <style>
-.dot{
-  cursor:pointer;
 }
 .slides {
   display: flex;
   transition: transform .5s ease;
   will-change: transform;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
 }
 .dots{
   display:flex;
@@ -42,56 +42,12 @@
   overflow: hidden;
   padding: 0;
 }
-.slides {
-  display: flex;
-  transition: transform .5s ease;
-  touch-action: pan-y;
-}
-.slides {
-  scroll-behavior: smooth;
-}
-.dots{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:20px;
-}
-
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#555;
-  transition:.3s;
-}
-
-.dot.active{
-  background:#ff7a00;
-  box-shadow:0 0 10px #ff7a00;
-}
+  
 .fade.show {
   opacity: 1;
   transform: translateY(0);
 }
-.dots{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:20px;
-}
 
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#555;
-  transition:.3s;
-}
-
-.dot.active{
-  background:#ff7a00;
-  box-shadow:0 0 10px #ff7a00;
-}
 .btn {
   min-width: 160px;
 }
