@@ -6,6 +6,41 @@
 <title>Winner Circle Traders</title>
 
 <style>
+.dot{
+  cursor:pointer;
+}
+.slides {
+  display: flex;
+  transition: transform .5s ease;
+  will-change: transform;
+}
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#555;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#ff7a00;
+  box-shadow:0 0 10px #ff7a00;
+}
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+}
 .slides {
   display: flex;
   transition: transform .45s ease;
@@ -422,7 +457,7 @@ h1,h2,h3 { font-weight: bold; }
     </div>
 
   <div class="dots" id="dots"></div>
-
+</div>
 </div>
 <!-- OFFERS -->
 <div class="section fade">
@@ -520,6 +555,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const slides = document.getElementById("slides");
 const totalSlides = slides.children.length;
 const dotsContainer = document.getElementById("dots");
+
+if(!slides || !dotsContainer) return;
 
 let index = 0;
 
