@@ -29,7 +29,6 @@ h1,h2,h3 { font-weight: bold; }
   border-radius: 20px;
   box-shadow: 0 0 25px #ff7a00;
 }
-
 /* HERO */
 .hero {
   text-align: center;
@@ -81,7 +80,18 @@ h1,h2,h3 { font-weight: bold; }
   font-size: 18px;
   line-height: 1.6;
 }
+  
+.video {
+  text-align: center;
+  margin-top: 40px;
+}
 
+video {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 12px;
+}
+  
 /* CARDS */
 .cards {
   display: flex;
@@ -195,6 +205,13 @@ h1,h2,h3 { font-weight: bold; }
   <a href="#offers" class="btn">Start Your Journey</a>
 </div>
 
+  <!-- VIDEO -->
+<div class="video fade">
+  <video autoplay muted loop controls>
+    <source src="your-video.mp4" type="video/mp4">
+  </video>
+</div>
+  
 <!-- STORY -->
 <div class="section fade">
   <h2>My Trading Journey</h2>
