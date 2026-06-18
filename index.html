@@ -6,16 +6,23 @@
 <title>Winner Circle Traders</title>
 
 <style>
+.btn {
+  min-width: 160px;
+}
+.sticky-cta a:active {
+  transform: scale(0.98);
+}
 .slides img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  flex: 0 0 100%;
+  border-radius: 16px;
+}
 }
 .btn, .arrow, .sticky-cta a {
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  padding-bottom: 90px;
+  padding-bottom: 120px;
 }
 html {
   scroll-behavior: smooth;
@@ -78,7 +85,13 @@ h1,h2,h3 { font-weight: bold; }
 .btn:hover { transform: scale(1.05); }
 
 .section {
-  padding: 90px 20px;
+  padding: 70px 18px;
+}
+
+@media(max-width:768px){
+  .section {
+    padding: 55px 16px;
+  }
 }
 
 .section h2 {
