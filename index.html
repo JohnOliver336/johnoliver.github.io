@@ -1,239 +1,373 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Winner Circle Traders</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: Arial; margin: 0; background: #0b0b0b; color: white; }
-    .container { max-width: 900px; margin: auto; padding: 40px 20px; }
-    h1, h2, h3 { color: #ff7a00; }
-    .section { margin-bottom: 60px; }
-    .card { background: #161616; padding: 20px; border-radius: 12px; margin: 15px 0; }
-    .price { font-size: 22px; color: #00ff99; font-weight: bold; }
-    .oldprice { text-decoration: line-through; color: gray; }
-    .cta { background: #ff7a00; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold; color: black; display: block; margin-top: 20px; text-decoration: none; }
-    .highlight { color: #00ff99; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winner Circle Traders</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 { font-weight: bold; }
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 70px 20px 40px;
+}
+
+.logo {
+  width: 120px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px #ff7a00;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 52px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #bbb;
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.orange { color: #ff7a00; }
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 15px 32px;
+  margin-top: 20px;
+  background: #ff7a00;
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 20px #ff7a00;
+  transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+/* SECTIONS */
+.section {
+  padding: 90px 20px;
+}
+
+.section h2 {
+  font-size: 38px;
+  text-align: center;
+}
+
+.section p {
+  text-align: center;
+  color: #bbb;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* VIDEO */
+.video {
+  text-align: center;
+  margin-top: 20px;
+}
+
+video {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 12px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 14px;
+  width: 310px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border: 1px solid #ff7a00;
+}
+
+.price {
+  font-size: 30px;
+  color: #ff7a00;
+  margin: 10px 0;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.badge {
+  background: #ff3b3b;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* FADE */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TESTIMONIAL SLIDER */
+.slider {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,122,0,0.8);
+  border: none;
+  color: black;
+  font-size: 22px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+.footer {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- HERO -->
+<div class="hero fade">
+  <img class="logo" src="https://i.imgur.com/h8NAc6Z.png" alt="logo">
 
----
+  <h1>Become a <span class="orange">Consistent Funded Trader</span></h1>
 
-# 🧠 STOP GUESSING THE MARKET.
+  <p>
+    Stop guessing the markets. Learn a structured system, fix your execution, and build the discipline needed to become funded.
+  </p>
 
-## Build a structured trading system that takes you from confusion → consistency → funded trader.
-
-Most traders don’t fail because they lack information.
-
-They fail because they don’t know how to execute consistently.
-
-You can learn:
-- Liquidity
-- FVG
-- Order Blocks
-- Market Structure
-
-But still lose money.
-
-Because knowledge is NOT the problem.
-
-Execution is.
-
----
-
-# 🔥 THE WINNER CIRCLE SYSTEM
-
-A complete trading ecosystem designed to build disciplined, structured, and funded traders.
-
-You don’t just learn trading.
-
-You build your trading identity.
-
----
-
-# 🟩 OFFER 1 — WINNER CIRCLE PRO
-
-### Stay consistent with weekly guidance & accountability
-
-<div class="card">
-
-### Winner Circle Pro
-<span class="price">₱999/month (Launch Price)</span>
-<span class="oldprice">₱3,999/month</span>
-
----
-
-### What You Get:
-
-- Weekly Market Mapping Session
-- Weekly Q&A Session
-- Trade Review Session
-- Weekly Accountability Check-In
-- Private Discord Community
-- Full Session Recordings
-
----
-
-### TOTAL VALUE: ₱7,000+/month
-
-👉 Today: ₱999/month only
-
-<a class="cta">Join Winner Circle Pro</a>
-
+  <a href="#offers" class="btn">Explore Programs</a>
 </div>
 
----
-
-# 🟧 OFFER 2 — 30 DAY TRADING DEVELOPMENT PROGRAM
-
-### Build your complete trading system in 30 days
-
-<div class="card">
-
-### Development Program
-<span class="price">₱4,999 (Launch Price)</span>
-<span class="oldprice">₱9,999</span>
-
----
-
-### Includes Everything in Winner Circle Pro
-
-PLUS
-
----
-
-### 4-Week Live Program:
-
-Week 1 — Trading Foundation & Structure  
-Week 2 — Market Narrative & Directional Bias  
-Week 3 — Execution & Trade Management  
-Week 4 — Risk Management & Psychology
-
----
-
-### Bonuses:
-
-- Trading Plan Template
-- Journal Template
-- Access to Winner Circle Pro during program
-
----
-
-### TOTAL VALUE: ₱18,000+
-
-👉 Today: ₱4,999 only
-
-<a class="cta">Join 30-Day Development Program</a>
-
+<!-- VIDEO -->
+<div class="video fade">
+  <video autoplay muted loop controls>
+    <source src="your-video.mp4" type="video/mp4">
+  </video>
 </div>
 
----
+<!-- STORY -->
+<div class="section fade">
+  <h2>My Trading Journey</h2>
 
-# 🟨 OFFER 3 — FUNDED TRADER ACCELERATOR
-
-### Get coached personally and accelerate your path to funding
-
-<div class="card">
-
-### Funded Trader Accelerator
-<span class="price">₱9,999 (Launch Price)</span>
-<span class="oldprice">₱19,999+</span>
-
----
-
-### Includes Everything in:
-
-✔ Winner Circle Pro  
-✔ Development Program  
-
----
-
-### PLUS 1-on-1 Coaching:
-
-Session 1 — Trading Audit + Roadmap  
-Session 2 — Strategy Refinement  
-Session 3 — Psychology Coaching  
-Session 4 — Funded Trader Roadmap  
-Session 5 — Performance Review  
-
----
-
-### Additional Support:
-
-- Trade Journal Review
-- Personalized Trade Feedback
-- Priority Support
-- 90-Day Coaching Window
-
----
-
-### TOTAL VALUE: ₱30,000–₱40,000+
-
-👉 Today: ₱9,999 only
-
-<a class="cta">Apply for Accelerator</a>
-
+  <p style="max-width:800px;margin:auto;">
+    I was first introduced to trading in 2022 through crypto.
+    Like most people, I thought it was easy money at home.
+    After losing my first $100, I realized otherwise.
+    <br><br>
+    I studied endlessly on YouTube until I discovered ICT concepts.
+    I finally understood market structure and liquidity.
+    <br><br>
+    I became profitable… but still inconsistent.
+    <br><br>
+    That’s when I realized strategy wasn’t the problem—discipline was.
+    I spent years reprogramming my mindset, habits, and emotional control.
+    <br><br>
+    After 3 years, I became consistent and started receiving funded payouts.
+    Now I’m sharing this system so others don’t go through the same struggle.
+  </p>
 </div>
 
----
+<!-- TESTIMONIALS -->
+<div class="section fade">
+  <h2>Student Results</h2>
 
-# 🧠 WHY THIS SYSTEM WORKS
+  <div class="slider">
+    <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
 
-## Step 1: Learn
-Free Masterclass
+    <div class="slides" id="slides">
+      <img src="https://i.imgur.com/qeMsZ82.png">
+      <img src="https://i.imgur.com/1gYe0ew.png">
+      <img src="https://i.imgur.com/AVxTORx.png">
+      <img src="https://i.imgur.com/XUEA1TI.png">
+      <img src="https://i.imgur.com/k06CNVc.png">
+      <img src="https://i.imgur.com/HrWNFwh.png">
+      <img src="https://i.imgur.com/cWLIkEx.png">
+      <img src="https://i.imgur.com/Dknf7AK.png">
+      <img src="https://i.imgur.com/Uh7BEaY.png">
+      <img src="https://i.imgur.com/jWEndAQ.png">
+      <img src="https://i.imgur.com/nyLmqL4.png">
+      <img src="https://i.imgur.com/iShHyWe.png">
+      <img src="https://i.imgur.com/HWZMwLL.png">
+      <img src="https://i.imgur.com/RWl1Pdl.png">
+    </div>
 
-## Step 2: Build
-Development Program
-
-## Step 3: Accelerate
-Funded Trader Accelerator
-
-## Step 4: Maintain
-Winner Circle Pro
-
----
-
-# ⚠️ IMPORTANT
-
-Prices will NOT stay this low.
-
-Once slots fill up and results start coming in…
-
-This system will increase in price.
-
----
-
-# 🔥 WHO THIS IS FOR
-
-- Traders who are tired of strategy hopping
-- Traders who understand concepts but can’t execute
-- Traders who want consistency and structure
-- Traders aiming for funded accounts
-
----
-
-# ❌ WHO THIS IS NOT FOR
-
-- People looking for signals only
-- People who don’t follow rules
-- People who quit after losses
-
----
-
-# 🧠 FINAL MESSAGE
-
-Trading is not about knowing more.
-
-It’s about executing better.
-
-If you’re ready to fix that…
-
-Choose your path above.
-
+    <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+  </div>
 </div>
+
+<!-- OFFERS -->
+<div id="offers" class="section fade">
+  <h2>Choose Your Path</h2>
+
+  <div class="cards">
+
+    <!-- PRO -->
+    <div class="card">
+      <div class="badge">START HERE</div>
+      <h3>Winner Circle Pro</h3>
+      <div class="price">₱999 <span class="old">/ ₱3,999</span></div>
+
+      <ul>
+        <li>Weekly Market Mapping</li>
+        <li>Q&A Session</li>
+        <li>Trade Review Session</li>
+        <li>Accountability Check-in</li>
+        <li>Private Discord</li>
+        <li>Session Recordings</li>
+      </ul>
+
+      <a class="btn">Join Pro</a>
+    </div>
+
+    <!-- PROGRAM -->
+    <div class="card">
+      <div class="badge">MOST POPULAR</div>
+      <h3>30-Day Development Program</h3>
+      <div class="price">₱4,999 <span class="old">/ ₱9,999</span></div>
+
+      <p style="color:#bbb;">Everything in Winner Circle Pro, plus:</p>
+
+      <ul>
+        <li>4-Week Structured Program</li>
+        <li>Trading Plan Template</li>
+        <li>Journal System</li>
+        <li>Market Structure Training</li>
+        <li>Risk Management</li>
+        <li>Psychology Training</li>
+      </ul>
+
+      <a class="btn">Join Program</a>
+    </div>
+
+    <!-- ACCELERATOR -->
+    <div class="card">
+      <div class="badge">ONLY 5 SLOTS</div>
+      <h3>Funded Trader Accelerator</h3>
+      <div class="price">₱9,999 <span class="old">/ ₱19,999</span></div>
+
+      <p style="color:#bbb;">Everything in Development Program, plus:</p>
+
+      <ul>
+        <li>5 Coaching Sessions</li>
+        <li>Trading Audit</li>
+        <li>Execution Refinement</li>
+        <li>Psychology Coaching</li>
+        <li>Funded Trader Roadmap</li>
+        <li>90-Day Support</li>
+      </ul>
+
+      <a class="btn">Apply Now</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section fade" style="text-align:center;">
+  <h2>This is exactly what I need.</h2>
+  <a class="btn">Start Your Journey</a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Winner Circle Traders © 2026
+</div>
+
+<script>
+// FADE ANIMATION
+const faders = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+faders.forEach(el => observer.observe(el));
+
+// TESTIMONIAL SLIDER
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+function moveSlide(dir){
+  index += dir;
+  if(index < 0) index = total - 1;
+  if(index >= total) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+</script>
 
 </body>
 </html>
