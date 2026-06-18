@@ -47,6 +47,9 @@
   transition: transform .5s ease;
   touch-action: pan-y;
 }
+.slides {
+  scroll-behavior: smooth;
+}
 .dots{
   display:flex;
   justify-content:center;
@@ -97,8 +100,10 @@
 }
 .slides img {
   width: 100%;
+  height: auto;
   flex: 0 0 100%;
   border-radius: 16px;
+  object-fit: cover;
 }
 
 .btn, .arrow, .sticky-cta a {
