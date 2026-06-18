@@ -531,11 +531,23 @@ Winner Circle Traders © 2026
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // IMPORTANT: enables fade-in system
-  document.documentElement.classList.remove("no-js");
-
   const slides = document.getElementById("slides");
   const dotsContainer = document.getElementById("dots");
+
+  // ===== FADE ANIMATION FIX =====
+  const faders = document.querySelectorAll(".fade");
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("show");
+      obs.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  faders.forEach(el => observer.observe(el));
 
   if (!slides || !dotsContainer) return;
 
@@ -572,14 +584,12 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSlider();
 
   // AUTO SLIDE
-  function nextSlide() {
+  setInterval(() => {
     index = (index + 1) % totalSlides;
     updateSlider();
-  }
+  }, 5000);
 
-  setInterval(nextSlide, 5000);
-
-  // SWIPE SUPPORT (mobile)
+  // SWIPE
   let startX = 0;
   let startY = 0;
 
@@ -595,7 +605,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let diffX = endX - startX;
     let diffY = endY - startY;
 
-    // only trigger horizontal swipe
     if (Math.abs(diffX) > Math.abs(diffY)) {
 
       if (diffX < -50) {
