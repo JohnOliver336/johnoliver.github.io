@@ -531,18 +531,18 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===== SIMPLE FADE FIX (SAFE + RELIABLE) =====
 const faders = document.querySelectorAll(".fade");
 
-function revealOnScroll() {
-  faders.forEach(el => {
-    const rect = el.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add("show");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
     }
   });
-}
+}, {
+  threshold: 0.15
+});
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll(); // run on page load
+faders.forEach(el => observer.observe(el));
 
   if (!slides || !dotsContainer) return;
 
