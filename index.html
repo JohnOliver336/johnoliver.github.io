@@ -6,6 +6,34 @@
 <title>Winner Circle Traders</title>
 
 <style>
+.slides {
+  display: flex;
+  transition: transform .45s ease;
+  touch-action: pan-y;
+}
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#555;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#ff7a00;
+  box-shadow:0 0 10px #ff7a00;
+}
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .dots{
   display:flex;
   justify-content:center;
@@ -232,43 +260,6 @@ h1,h2,h3 { font-weight: bold; }
   border-radius: 16px;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  background: rgba(255,122,0,0.9);
-  border: none;
-  color: black;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 15px rgba(255,122,0,.5);
-}
-
-.left {
-  left: 5px;
-}
-
-.right {
-  right: 5px;
-}
-
-.left { left: 10px; }
-.right { right: 10px; }
-
-@media(max-width:768px){
-  .arrow{
-    display:none;
-  }
-}
-
 .footer {
   text-align: center;
   padding: 40px;
@@ -325,6 +316,7 @@ h1,h2,h3 { font-weight: bold; }
     font-weight:bold;
     text-decoration:none;
     box-shadow:0 0 25px rgba(255,122,0,.6);
+}
 }
   .card.popular {
     border:2px solid #ff7a00;
@@ -406,39 +398,31 @@ h1,h2,h3 { font-weight: bold; }
 
 <!-- TESTIMONIALS -->
 <div class="section fade">
-<h2>Student Results</h2>
+  <h2>Student Results</h2>
 
-<div class="slider">
+  <div class="slider">
 
-  <div class="slides" id="slides">
-    ...
-  </div>
+    <div class="slides" id="slides">
 
-</div>
+      <img src="https://imgur.com/qeMsZ82.jpg">
+      <img src="https://imgur.com/1gYe0ew.jpg">
+      <img src="https://imgur.com/AVxTORx.jpg">
+      <img src="https://imgur.com/XUEA1TI.jpg">
+      <img src="https://imgur.com/k06CNVc.jpg">
+      <img src="https://imgur.com/HrWNFwh.jpg">
+      <img src="https://imgur.com/cWLIkEx.jpg">
+      <img src="https://imgur.com/Dknf7AK.jpg">
+      <img src="https://imgur.com/Uh7BEaY.jpg">
+      <img src="https://imgur.com/jWEndAQ.jpg">
+      <img src="https://imgur.com/nyLmqL4.jpg">
+      <img src="https://imgur.com/iShHyWe.jpg">
+      <img src="https://imgur.com/HWZMwLL.jpg">
+      <img src="https://imgur.com/RWl1Pdl.jpg">
 
-<div class="dots" id="dots"></div>
+    </div>
 
-    <img src="https://imgur.com/qeMsZ82.jpg">
-    <img src="https://imgur.com/1gYe0ew.jpg">
-    <img src="https://imgur.com/AVxTORx.jpg">
-    <img src="https://imgur.com/XUEA1TI.jpg">
-    <img src="https://imgur.com/k06CNVc.jpg">
-    <img src="https://imgur.com/HrWNFwh.jpg">
-    <img src="https://imgur.com/cWLIkEx.jpg">
-    <img src="https://imgur.com/Dknf7AK.jpg">
-    <img src="https://imgur.com/Uh7BEaY.jpg">
-    <img src="https://imgur.com/jWEndAQ.jpg">
-    <img src="https://imgur.com/nyLmqL4.jpg">
-    <img src="https://imgur.com/iShHyWe.jpg">
-    <img src="https://imgur.com/HWZMwLL.jpg">
-    <img src="https://imgur.com/RWl1Pdl.jpg">
+  <div class="dots" id="dots"></div>
 
-  </div>
-
-  <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
-  
-
-</div>
 </div>
 <!-- OFFERS -->
 <div class="section fade">
@@ -529,7 +513,10 @@ Winner Circle Traders © 2026
 <div class="sticky-cta">
   <a href="#offers">🚀 Join Winner Circle</a>
 </div>
+  
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
 const slides = document.getElementById("slides");
 const totalSlides = slides.children.length;
 const dotsContainer = document.getElementById("dots");
@@ -540,7 +527,6 @@ let index = 0;
 for(let i = 0; i < totalSlides; i++){
 
   const dot = document.createElement("div");
-
   dot.classList.add("dot");
 
   if(i === 0){
@@ -554,6 +540,7 @@ for(let i = 0; i < totalSlides; i++){
 
   dotsContainer.appendChild(dot);
 }
+  updateSlider();
 
 function updateSlider(){
 
@@ -568,17 +555,13 @@ function updateSlider(){
 }
 
 function nextSlide(){
-
   index++;
-
   if(index >= totalSlides){
     index = 0;
   }
-
   updateSlider();
 }
 
-// auto slide every 5 sec
 setInterval(nextSlide, 5000);
 
 // swipe support
@@ -594,50 +577,23 @@ slides.addEventListener("touchend", (e) => {
   touchEndX = e.changedTouches[0].screenX;
 
   if(touchEndX < touchStartX - 50){
-
     index++;
-
     if(index >= totalSlides){
       index = 0;
     }
-
     updateSlider();
   }
 
   if(touchEndX > touchStartX + 50){
-
     index--;
-
     if(index < 0){
       index = totalSlides - 1;
     }
-
     updateSlider();
   }
 });
 
-// auto slide
-setInterval(() => {
-  const slides = document.getElementById("slides");
-  const total = slides.children.length;
-
-  index++;
-  if(index >= total) index = 0;
-
-  slides.style.transform = `translateX(-${index * 100}%)`;
-}, 5000);
-
-// scroll animation
-const faders = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver((entries, obs)=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting) return;
-    e.target.classList.add('show');
-    obs.unobserve(e.target);
-  });
-},{threshold:0.2});
-
-faders.forEach(el=>observer.observe(el));
+});
 </script>
 </body>
 </html>
