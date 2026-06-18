@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,9 +43,21 @@
   padding: 0;
 }
   
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
 .fade.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* fallback so content is never invisible forever */
+.no-js .fade {
+  opacity: 1;
+  transform: none;
 }
 
 .btn {
@@ -517,7 +529,89 @@ Winner Circle Traders © 2026
 </div>
   
 <script>
-// disabled for testing
+document.addEventListener("DOMContentLoaded", () => {
+
+  // IMPORTANT: enables fade-in system
+  document.documentElement.classList.remove("no-js");
+
+  const slides = document.getElementById("slides");
+  const dotsContainer = document.getElementById("dots");
+
+  if (!slides || !dotsContainer) return;
+
+  const totalSlides = slides.children.length;
+  let index = 0;
+
+  function updateSlider() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+
+    const dots = document.querySelectorAll(".dot");
+
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    if (dots[index]) {
+      dots[index].classList.add("active");
+    }
+  }
+
+  // Create dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+
+    if (i === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      index = i;
+      updateSlider();
+    });
+
+    dotsContainer.appendChild(dot);
+  }
+
+  updateSlider();
+
+  // AUTO SLIDE
+  function nextSlide() {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+  }
+
+  setInterval(nextSlide, 5000);
+
+  // SWIPE SUPPORT (mobile)
+  let startX = 0;
+  let startY = 0;
+
+  slides.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  });
+
+  slides.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    let endY = e.changedTouches[0].clientY;
+
+    let diffX = endX - startX;
+    let diffY = endY - startY;
+
+    // only trigger horizontal swipe
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+
+      if (diffX < -50) {
+        index = (index + 1) % totalSlides;
+        updateSlider();
+      }
+
+      if (diffX > 50) {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      }
+
+    }
+  });
+
+});
 </script>
 </body>
 </html>
