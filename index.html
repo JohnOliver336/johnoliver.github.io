@@ -6,12 +6,51 @@
 <title>Winner Circle Traders</title>
 
 <style>
-table td, table th {
-  font-size: 14px;
+/* COMPARISON TABLE */
+
+.comparison-table{
+  margin-top:60px;
 }
 
-table tr:hover {
-  background: rgba(255,122,0,0.05);
+.comparison-table h3{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:32px;
+}
+
+.table-wrapper{
+  overflow-x:auto;
+}
+
+.comparison-table table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:800px;
+  background:#111;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.comparison-table th{
+  background:#ff7a00;
+  color:black;
+  padding:18px;
+  font-size:16px;
+}
+
+.comparison-table td{
+  padding:16px;
+  text-align:center;
+  border-bottom:1px solid #222;
+}
+
+.comparison-table td:first-child{
+  text-align:left;
+  font-weight:bold;
+}
+
+.comparison-table tr:hover{
+  background:#181818;
 }
   
 .slides {
@@ -498,94 +537,160 @@ for the Funded Trader Accelerator.
 </div> <!-- cards -->
 </div> <!-- offers section -->
 
-<!-- COMPARISON TABLE -->
-<div class="section fade">
-  <h2>Compare the Programs</h2>
+<div class="comparison-table">
 
-  <p style="max-width:700px;margin:auto;">
-    Choose the path that fits your current level. Here’s a clear breakdown of what each program includes.
-  </p>
+  <h3>Compare Your Options</h3>
 
-  <div style="overflow-x:auto; margin-top:40px;">
-    <table style="width:100%; border-collapse: collapse; min-width:700px; color:white; text-align:center;">
-
+  <div class="table-wrapper">
+    <table>
       <thead>
-        <tr style="background:#111;">
-          <th style="padding:15px; border:1px solid #222;">Features</th>
-          <th style="padding:15px; border:1px solid #222;">Winner Circle Pro</th>
-          <th style="padding:15px; border:1px solid #222; background:#1a1a1a; border:1px solid #ff7a00;">30-Day Program</th>
-          <th style="padding:15px; border:1px solid #222;">Funded Accelerator</th>
+        <tr>
+          <th>Features</th>
+          <th>Winner Circle Pro</th>
+          <th>30-Day Development Program</th>
+          <th>Funded Trader Accelerator</th>
         </tr>
       </thead>
 
       <tbody>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Weekly Market Mapping</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Launch Price</td>
+          <td>₱999</td>
+          <td>₱4,999</td>
+          <td>₱9,999</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Q&A Sessions</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Regular Price</td>
+          <td>₱3,999</td>
+          <td>₱9,999</td>
+          <td>₱19,999</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Trade Reviews</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Weekly Market Mapping</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Structured 4-Week Program</td>
-          <td>—</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Q&A Sessions</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Trading Plan Template</td>
-          <td>—</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Trade Review Sessions</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Psychology Training</td>
-          <td>—</td>
-          <td>✔</td>
-          <td>✔</td>
+          <td>Weekly Accountability Check-ins</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">1-on-1 Coaching</td>
-          <td>—</td>
-          <td>—</td>
-          <td>✔ (5 Sessions)</td>
+          <td>Private Discord Community</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Funded Trader Roadmap</td>
-          <td>—</td>
-          <td>—</td>
-          <td>✔</td>
+          <td>Live Session Recordings</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
         </tr>
 
         <tr>
-          <td style="padding:12px; border:1px solid #222;">Support Access</td>
-          <td>Basic Discord</td>
+          <td>4-Week Structured Program</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Trading Plan Template</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Journal Template</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>1-on-1 Coaching Sessions</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>5 Sessions</td>
+        </tr>
+
+        <tr>
+          <td>Full Trading Audit</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Execution Refinement</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Psychology Coaching</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Trade Journal Review</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>Personalized Trade Feedback</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
           <td>Priority Support</td>
-          <td>90-Day Support</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+
+        <tr>
+          <td>90-Day Support Window</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
         </tr>
 
       </tbody>
     </table>
   </div>
+
 </div>
 
 <!-- CTA -->
